@@ -41,7 +41,7 @@ class RegisterView(generics.GenericAPIView):
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
 
-        
+        import ipdb; ipdb.set_trace();
         relativeLink = reverse('email-verify')
         absurl = 'http://'+ current_site+relativeLink+ "?token="+ str(token)
         email_body = 'Hi ' + user.username + 'Use the link to verify your email \n'+absurl
@@ -395,4 +395,11 @@ class NotificationView(generics.GenericAPIView):
 
         serializer.save()
         return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteSessionHistory(request,pk):
+    if(request.method == 'DELETE'):
+        session = Sessions.objects.get(id=pk)
+        session.delete()
+        return Response('CLass history deleted successfully')
 

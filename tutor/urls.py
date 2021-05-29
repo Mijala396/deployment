@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import RegisterView,LoginAPIView,VerifyEmail,UserListView,SubjectAPIView,SubjectSearchAPIView,SearchTutor,TutorDetails,RatingDetails,DeleteSubject,SessionAPIView,SessionAPIApprovedView,SessionAPIStudentApprovedView, UpdateApprove, BillView,BillSView,BillDetails,UpdateBillPaidStatus,DeleteSessionRequest,PasswordTokenCheckAPI,RequestPasswordResetEmail,SetNewPasswordAPIView,MyFileView,NotificationView,RetriveMyFile
+from .views import RegisterView,LoginAPIView,VerifyEmail,UserListView,SubjectAPIView,SubjectSearchAPIView,SearchTutor,TutorDetails,RatingDetails,DeleteSubject,SessionAPIView,SessionAPIApprovedView,SessionAPIStudentApprovedView, UpdateApprove, BillView,BillSView,BillDetails,UpdateBillPaidStatus,DeleteSessionRequest,PasswordTokenCheckAPI,RequestPasswordResetEmail,SetNewPasswordAPIView,MyFileView,NotificationView,RetriveMyFile,deleteSessionHistory
 
 urlpatterns= [
     path('register/', RegisterView.as_view(), name = "register"),
@@ -26,5 +26,7 @@ urlpatterns= [
     path('password-reset-complete/',SetNewPasswordAPIView.as_view(),name='password-reset-completed'),
     path('upload/',MyFileView.as_view(),name='upload-a-file'),
     path('notifications/',NotificationView.as_view(),name='notifications-user'),
-    path('getFile/<int:pk>/',RetriveMyFile.as_view(),name='get-file')
+    path('getFile/<int:pk>/',RetriveMyFile.as_view(),name='get-file'),
+    path('deleteSessionHistory/<int:pk>/',deleteSessionHistory,name='delete-history')
+
 ]

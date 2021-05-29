@@ -134,8 +134,8 @@ from datetime import timedelta
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'samulshrestha97@gmail.com'
-EMAIL_HOST_PASSWORD = 'Eddie1997'
+EMAIL_HOST_USER = 'tutorsearch12@gmail.com'
+EMAIL_HOST_PASSWORD = 'tutor!@#4'
 
 
 SIMPLE_JWT = {
