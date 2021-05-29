@@ -41,7 +41,7 @@ class RegisterView(generics.GenericAPIView):
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
 
-        import ipdb; ipdb.set_trace();
+        
         relativeLink = reverse('email-verify')
         absurl = 'http://'+ current_site+relativeLink+ "?token="+ str(token)
         email_body = 'Hi ' + user.username + 'Use the link to verify your email \n'+absurl
@@ -115,7 +115,7 @@ class SubjectAPIView(generics.RetrieveAPIView):
         subject = Subject.objects.all().filter(subject_name=subject_name,id=request.user.id)
         data = SubjectSerializer(data=subject,many=True)
         data.is_valid()
-        import ipdb; ipdb.set_trace()
+        
         if len(data.data)!=0:
             return Response('Already added')
         serializer = SubjectSerializer(data=request.data)
